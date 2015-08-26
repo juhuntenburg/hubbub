@@ -66,6 +66,9 @@ for i in range(len(covered)):
 '''airflow bag'''
 bags['airflow'] = [0, 0.5, 1]
 
+'''mouthpiece bag'''
+bags['mouthpiece'] = [0, 0.25, 0.5, 1]
+
 # IN / OUT
 
 # piece = list (or dict)  of lenght 27
