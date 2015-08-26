@@ -12,18 +12,15 @@ bags = dict()
 ''' decision maker bag'''
 bags['yesno'] = 7*[True] + 13*[False]
 
-
 '''durations bag'''
 bags['duration'] = [x+1 for x in range(50)]
 bags['duration'] += 4*['as long as you can']
 # how to check for total length with instructions like "as long as you can"?
 
-
 '''hold breath bag'''
 bags['hold_breath'] = ['in middle', 'after in', 'after out']
 # pick duration for hold
-# ,
-
+# symbol is ,
 
 '''fingerings bag'''
 bags['fingering'] = ['trill keys 1', 'trill keys 2', 'trill keys 1+2']
@@ -71,6 +68,12 @@ bags['mouthpiece'] = [0, 0.25, 0.5, 1]
 
 '''dynamics bag'''
 bags['dynamics'] += [(x+1)*y if x < 3 else 'm'+y for x in range(4) for y in ['f','p']]
+
+'''articulation bag'''
+bags['articulation'] = ['.', '-', '>', '>>', 'mini tongue ram @end of breath']
+# what do these mean?
+# does the direction of the arrows matter?
+# is the double arrow ok?
 
 # IN / OUT
 
