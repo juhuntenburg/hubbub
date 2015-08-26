@@ -69,6 +69,9 @@ bags['airflow'] = [0, 0.5, 1]
 '''mouthpiece bag'''
 bags['mouthpiece'] = [0, 0.25, 0.5, 1]
 
+'''dynamics bag'''
+bags['dynamics'] += [(x+1)*y if x < 3 else 'm'+y for x in range(4) for y in ['f','p']]
+
 # IN / OUT
 
 # piece = list (or dict)  of lenght 27
