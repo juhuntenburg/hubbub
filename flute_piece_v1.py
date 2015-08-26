@@ -63,6 +63,9 @@ for i in range(len(covered)):
         print str(i+1)+choices[j]+": "+str(covered[i][choices[j]])+" "+str(lenlist)+" "+str(sumlist)
 
 
+'''airflow bag'''
+bags['airflow'] = [0, 0.5, 1]
+
 # IN / OUT
 
 # piece = list (or dict)  of lenght 27
