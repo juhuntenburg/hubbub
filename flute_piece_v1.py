@@ -14,26 +14,9 @@ bags['yesno'] = 7*[True] + 13*[False]
 
 
 '''durations bag'''
-bags['duration'] = [37, 35, 28, 15, 31, 27, 44, 22, 2, 38, 24, 6, 3, 48, 18, 26, 46,
-                    36, 14, 30, 42, 8,33, 34, 45, 16, 29, 47, 21, 50, 10, 7, 32,
-                    13, 23, 39, 41, 20, 25, 40, 11, 17, 1, 12, 5, 43, 19, 4, 9, 49]
+bags['duration'] = [x+1 for x in range(50)]
 bags['duration'] += 4*['as long as you can']
 # how to check for total length with instructions like "as long as you can"?
-# where are the numbers from? how could they be generated?
-
-# check that all durations are in there (should be 54)
-print ""
-print "durations"
-print "# all durations: "+str(len(bags['duration']))
-
-# check how many interger durations and what all integer durations add up to
-int_duration = [x for x in bags['duration'] if type(x)==int]
-print "# integer durations: "+str(len(int_duration))
-print "total length of integer durations: "+str(sum(int_duration))
-
-# print string durations
-str_duration = [y for y in bags['duration'] if type(y)==str]
-print "string durations: "+str(str_duration)
 
 
 '''hold breath bag'''
