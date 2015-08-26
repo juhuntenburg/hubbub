@@ -22,6 +22,8 @@ bags['duration'] = [37, "as long as you can", 35, 28, 15, 31, 27, 44, 22, 2, 38,
 # where are the numbers from? how could they be generated?
 
 # check that all durations are in there (should be 54)
+print ""
+print "durations"
 print "# all durations: "+str(len(bags['duration']))
 
 # check how many interger durations and what all integer durations add up to
@@ -50,8 +52,27 @@ bags['fingering'] = ['trill keys 1', 'trill keys 2', '+thumb', '+thumb', '+thumb
 # each list implements the 8 holes to cover, left to right
 covered = [{'a':[1]+7*[0], 'b':[0,1]+6*[0]},
            {'a':2*[1]+6*[0], 'b':4*[0]+2*[1]+2*[0]},
-           {'a':[, 'b':}
+           {'a':3*[1]+5*[0], 'b':2*[1]+2*[0]+1*[1]+3*[0]},
+           {'a':3*[1]+1*[0]+1*[1]+3*[0], 'b':1*[1]+3*[0]+3*[1]+1*[0]},
+           {'a':3*[1]+1*[0]+2*[1]+2*[0], 'b':1*[0]+2*[1]+1*[0]+3*[1]+1*[0]},
+           {'a':3*[1]+1*[0]+3*[1]+1*[0], 'b':1*[0]+2*[1]+1*[0]+4*[1]},
+           {'a':3*[1]+1*[0]+3*[1]+1*[0]}, # what is going on with this?
+           {'a':8*[1]}
           ]
+
+# print out the patterns and check length of each list and if they add up to index
+print ""
+print "covered"
+choices=['a','b']
+for i in range(len(covered)):
+    for j in range(len(covered[i])):
+        lenlist=True
+        sumlist=True
+        if  len(covered[i][choices[j]])!=8:
+            lenlist=False
+        if sum(covered[i][choices[j]])!=i+1:
+            sumlist=False
+        print str(i+1)+choices[j]+": "+str(covered[i][choices[j]])+" "+str(lenlist)+" "+str(sumlist)
 
 # check length of each list and if they add up to index
 
