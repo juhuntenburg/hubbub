@@ -1,24 +1,19 @@
 
-# coding: utf-8
-
 import numpy as np
 from random import randint
 
-
-# initializing a data structure containing the different materials to draw from
-
-# In[22]:
+'''
+Initializing a data structure implementing the bags,
+containing the different materials to draw from
+'''
 
 bags = dict()
 
-
-# In[23]:
-
+''' decision maker bag'''
 bags['yesno'] = 7*[True] + 13*[False]
 
 
-# In[45]:
-
+'''durations bag'''
 bags['duration'] = [37, "as long as you can", 35, 28, 15, 31, 27, 44, 22, 2, 38, 24, 6, 3, 48, 18, 26, 46,
                     36, 14, 30, 42, 8,33, 34, 45, 16, 29, 47, 21, 50, 10, "as long as you can", 7, 32,
                     "as long as you can", 13, 23, 39, 41, 20, 25, 40, 11, 17, 1, 12, 5, 43, 19, 4, 6,
@@ -39,41 +34,26 @@ str_duration = [y for y in bags['duration'] if type(y)==str]
 print "string durations: "+str(str_duration)
 
 
-# In[ ]:
-
+'''hold breath bag'''
 bags['hold_breath'] = ['in middle', 'after in', 'after out']
 # pick duration for hold
 # ,
 
 
-# In[75]:
-
+'''fingerings bag'''
 bags['fingering'] = ['trill keys 1', 'trill keys 2', '+thumb', '+thumb', '+thumb', 'trill keys 1+2',
                      1, 2, 3, 4, 5, 6, 7, 8]
 # what is trill keys 1 or 2 referring to?
 # len should be 14
 
-
-# In[76]:
-
-bags['fingering']
-
-
-# In[66]:
-
+# additional list to implement the actual covering patterns
+# each list implements the 8 holes to cover, left to right
 covered = [{'a':[1]+7*[0], 'b':[0,1]+6*[0]},
            {'a':2*[1]+6*[0], 'b':4*[0]+2*[1]+2*[0]},
            {'a':[, 'b':}
           ]
-# each list implements the 8 holes to cover, left to right
 
 # check length of each list and if they add up to index
-
-
-# In[68]:
-
-covered[1]['b']
-
 
 # IN / OUT
 
