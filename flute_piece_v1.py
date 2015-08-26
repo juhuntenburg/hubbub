@@ -14,10 +14,11 @@ bags['yesno'] = 7*[True] + 13*[False]
 
 
 '''durations bag'''
-bags['duration'] = [37, "as long as you can", 35, 28, 15, 31, 27, 44, 22, 2, 38, 24, 6, 3, 48, 18, 26, 46,
-                    36, 14, 30, 42, 8,33, 34, 45, 16, 29, 47, 21, 50, 10, "as long as you can", 7, 32,
-                    "as long as you can", 13, 23, 39, 41, 20, 25, 40, 11, 17, 1, 12, 5, 43, 19, 4, 6,
-                    "as long as you can", 49]
+bags['duration'] = [37, 35, 28, 15, 31, 27, 44, 22, 2, 38, 24, 6, 3, 48, 18, 26, 46,
+                    36, 14, 30, 42, 8,33, 34, 45, 16, 29, 47, 21, 50, 10, 7, 32,
+                    13, 23, 39, 41, 20, 25, 40, 11, 17, 1, 12, 5, 43, 19, 4, 6,49]
+bags['duration'] += 4*['as long as you can']
+
 # how to check for total length with instructions like "as long as you can"?
 # where are the numbers from? how could they be generated?
 
