@@ -46,6 +46,7 @@ covered = [{'a':[1]+7*[0], 'b':[0,1]+6*[0]},
            {'a':3*[1]+1*[0]+3*[1]+1*[0]}, # what is going on with this?
            {'a':8*[1]}
           ]
+# how is this generated?
 
 # print out the patterns and check length of each list and if they add up to index
 print ""
