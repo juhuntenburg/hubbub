@@ -102,7 +102,6 @@ bags['techniques_2'] = ['whistle tone / flute whistle',
                         'whistle sssss',
                         'spit / saliva sound']
 
-
 '''
 Generating the parts of the piece
 ----------------------------------
@@ -112,7 +111,7 @@ piece = []
 count = 0
 
 # continue to produce pieces as long as the total length is less than 10 min
-while duration_total < 600
+while count < 20:
 
     count += 1
     part = dict()
@@ -124,5 +123,9 @@ while duration_total < 600
     else:
         part['breath']=0 # out breath
 
-    # pick hold breath
-    part['hold_breath'] = bags['hold_breath'][randint(0, len(bags['hold_breath']))]
+    '''hold' breath'''
+    # decide whether to pick
+    if bags['yesno'][randint(0, len(bags['yesno'])-1)]==True:
+        part['hold_breath'] = bags['hold_breath'][randint(0, len(bags['hold_breath'])-1)]
+
+    print part
