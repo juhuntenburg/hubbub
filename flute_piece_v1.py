@@ -102,5 +102,19 @@ bags['techniques_2'] = ['whistle tone / flute whistle',
                         'spit / saliva sound']
 
 # IN / OUT
+# continue to produce pieces as long as the total length is less than 10 min
+piece = []
+
+count = 0
+while duration_total < 600
+
+    count += 1
+    part = dict()
+
+    # alternate in and out
+    if count%2==0:
+        part['breath']=1 # in breath
+    else:
+        part['breath']=0 # out breath
 
 # piece = list (or dict)  of lenght 27
