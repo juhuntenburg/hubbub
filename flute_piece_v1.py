@@ -101,11 +101,14 @@ bags['techniques_2'] = ['whistle tone / flute whistle',
                         'whistle sssss',
                         'spit / saliva sound']
 
-# IN / OUT
-# continue to produce pieces as long as the total length is less than 10 min
-piece = []
+'''
+Generating the parts of the piece
+'''
 
+piece = []
 count = 0
+
+# continue to produce pieces as long as the total length is less than 10 min
 while duration_total < 600
 
     count += 1
