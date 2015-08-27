@@ -28,10 +28,6 @@ bags['fingering'] = ['trill keys 1', 'trill keys 2', 'trill keys 1+2']
 bags['fingering'] += 3*['+thumb'] #why 3*?
 bags['fingering'] += [x+1 for x in range(8)]
 
-print ""
-print "fingering"
-print bags['fingering']
-
 # additional list to implement the actual covering patterns
 # each list implements the 8 holes to cover, left to right
 covered = [{'a':[1]+7*[0], 'b':[0,1]+6*[0]},
@@ -45,7 +41,7 @@ covered = [{'a':[1]+7*[0], 'b':[0,1]+6*[0]},
           ]
 # how is this generated?
 
-# print out the patterns and check length of each list and if they add up to index
+# print out the patterns, check length and if they add up to index
 print ""
 print "covered"
 choices=['a','b']
@@ -79,6 +75,8 @@ bags['articulation'] = ['.', '-', '>', '>>', 'mini tongue ram @end of breath']
 
 
 '''techniques_1 bag, text and glissandi'''
+# why do specifically text and glissandi go together?
+# how did you choose the consonants?
 bags['techniques_1'] = ['expel air', 'frustration', 'grant', 'sigh',
                         'text sung, ossia ..?']
 bags['techniques_1'] += ['glissandi of '+str(x) for x in
@@ -92,6 +90,16 @@ bags['techniques_1'] += ['text spoken, Tim Minton, speaking using '
                          ['pitch too, of air/the breath '
                           +str(y) for y in ['low', 'medium', 'high']]]
 
+'''techniques_2 bag, everything else'''
+bags['techniques_2'] = ['whistle tone / flute whistle',
+                        'gravel (only out) in voice',
+                        'gravel (only out) alone',
+                        'whistle tooth (only out)',
+                        'beating (singing+air), .5 covered',
+                        'beating (singing+air), .25 covered',
+                        'whistle body (i.e. lips) (in/out)',
+                        'whistle sssss',
+                        'spit / saliva sound']
 
 # IN / OUT
 
