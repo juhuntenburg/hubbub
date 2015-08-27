@@ -77,15 +77,15 @@ bags['articulation'] = ['.', '-', '>', '>>', 'mini tongue ram @end of breath']
 '''techniques_1 bag, text and glissandi'''
 # why do specifically text and glissandi go together?
 # how did you choose the consonants?
-bags['techniques_1'] = ['expel air', 'frustration', 'grant', 'sigh',
-                        'text sung, ossia ..?']
+bags['techniques_1'] = ['expel air', 'frustration', 'gravel', 'sigh',
+                        'text sung']
 bags['techniques_1'] += ['glissandi of '+str(x) for x in
-                         ['air', 'grand', 'fingering', 'whistle']]
+                         ['air', 'gravel', 'fingering', 'whistle']]
 bags['techniques_1'] += ['text spoken mouthing vowels '
                          +str(x) for x in ['a', 'e', 'i', 'o', 'u']]
 bags['techniques_1'] += ['text spoken mouthing consonants '
                          +str(x) for x in ['k', 's', 'f', 'd']]
-bags['techniques_1'] += ['text spoken, Tim Minton, speaking using '
+bags['techniques_1'] += ['text spoken, Tim Winton, speaking using '
                          +str(x) for x in ['voice, ordinary']+
                          ['pitch too, of air/the breath '
                           +str(y) for y in ['low', 'medium', 'high']]]
