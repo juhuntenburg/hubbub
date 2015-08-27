@@ -111,7 +111,7 @@ piece = []
 count = 0
 
 # continue to produce pieces as long as the total length is less than 10 min
-while count < 20:
+while count < 20: # will have to be replaced by duration time lenght, testing
 
     count += 1
     part = dict()
