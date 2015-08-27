@@ -113,11 +113,16 @@ while duration_total < 600
 
     count += 1
     part = dict()
+    part['count'] = count
 
     # alternate in and out
     if count%2==0:
         part['breath']=1 # in breath
     else:
         part['breath']=0 # out breath
+
+    # pick hold breath
+
+    part['hold_breath'] = bags['hold_breath'][randint(0, len(bags['hold_breath']))]
 
 # piece = list (or dict)  of lenght 27
