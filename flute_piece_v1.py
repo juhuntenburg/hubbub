@@ -5,6 +5,7 @@ from random import randint
 '''
 Initializing a data structure implementing the bags,
 containing the different materials to draw from
+-----------------------------------------------------
 '''
 
 bags = dict()
@@ -101,8 +102,10 @@ bags['techniques_2'] = ['whistle tone / flute whistle',
                         'whistle sssss',
                         'spit / saliva sound']
 
+
 '''
 Generating the parts of the piece
+----------------------------------
 '''
 
 piece = []
@@ -122,7 +125,4 @@ while duration_total < 600
         part['breath']=0 # out breath
 
     # pick hold breath
-
     part['hold_breath'] = bags['hold_breath'][randint(0, len(bags['hold_breath']))]
-
-# piece = list (or dict)  of lenght 27
