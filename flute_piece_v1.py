@@ -107,6 +107,11 @@ Generating the parts of the piece
 ----------------------------------
 '''
 
+# function to pick from the bags
+def pick(bag):
+    paper = bags[bag][randint(0, len(bags[bag])-1)]
+    return paper
+
 piece = []
 count = 0
 
@@ -123,9 +128,9 @@ while count < 20: # will have to be replaced by duration time lenght, testing
     else:
         part['breath']=0 # out breath
 
-    '''hold' breath'''
+    '''hold breath'''
     # decide whether to pick
-    if bags['yesno'][randint(0, len(bags['yesno'])-1)]==True:
-        part['hold_breath'] = bags['hold_breath'][randint(0, len(bags['hold_breath'])-1)]
+    if pick('yesno')==True:
+        part['hold_breath'] = pick('hold_breath')
 
     print part
