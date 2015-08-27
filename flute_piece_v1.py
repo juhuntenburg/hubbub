@@ -67,13 +67,31 @@ bags['airflow'] = [0, 0.5, 1]
 bags['mouthpiece'] = [0, 0.25, 0.5, 1]
 
 '''dynamics bag'''
-bags['dynamics'] += [(x+1)*y if x < 3 else 'm'+y for x in range(4) for y in ['f','p']]
+bags['dynamics'] = ['<', '>']
+bags['dynamics'] += [(x+1)*y if x < 3 else 'm'+y
+                     for x in range(4) for y in ['f','p']]
 
 '''articulation bag'''
 bags['articulation'] = ['.', '-', '>', '>>', 'mini tongue ram @end of breath']
 # what do these mean?
 # does the direction of the arrows matter?
 # is the double arrow ok?
+
+
+'''techniques_1 bag, text and glissandi'''
+bags['techniques_1'] = ['expel air', 'frustration', 'grant', 'sigh',
+                        'text sung, ossia ..?']
+bags['techniques_1'] += ['glissandi of '+str(x) for x in
+                         ['air', 'grand', 'fingering', 'whistle']]
+bags['techniques_1'] += ['text spoken mouthing vowels '
+                         +str(x) for x in ['a', 'e', 'i', 'o', 'u']]
+bags['techniques_1'] += ['text spoken mouthing consonants '
+                         +str(x) for x in ['k', 's', 'f', 'd']]
+bags['techniques_1'] += ['text spoken, Tim Minton, speaking using '
+                         +str(x) for x in ['voice, ordinary']+
+                         ['pitch too, of air/the breath '
+                          +str(y) for y in ['low', 'medium', 'high']]]
+
 
 # IN / OUT
 
