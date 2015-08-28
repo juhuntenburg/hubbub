@@ -183,14 +183,17 @@ while count < 20: # will have to be replaced by duration time lenght, testing
 
     # if first is crescendo or diminuendo, pick start and end dynamic
     if part['dynamics']['base'] == operator.lt :
+        # pick start and end that are not lt
         part['dynamics']['from'] = part['dynamics']['to'] = operator.lt
         while part['dynamics']['from'] == operator.lt:
             part['dynamics']['from'] = pick('dynamics')
         while part['dynamics']['to'] == operator.lt:
             part['dynamics']['to'] = pick('dynamics')
 
-        #if part['dynamics']['base'] == '<'
-        #part['dynamics']['from']
+        # decide about direction and make sure start and end make sense
+        swap = randint(0,1)
+        while part['dynamics']['to'] part['dynamics']['base'] part['dynamics']['from']
+
 
 
 
