@@ -15,7 +15,7 @@ bags['yesno'] = 7*[True] + 13*[False]
 
 '''durations bag'''
 bags['duration'] = [x+1 for x in range(50)]
-bags['duration'] += 4*['as long as you can']
+bags['duration'] += 4*['alap'] # as long as you can
 # how to check for total length with instructions like "as long as you can"?
 
 '''hold breath bag'''
@@ -124,13 +124,13 @@ while count < 20: # will have to be replaced by duration time lenght, testing
 
     '''in and out'''
     if count%2==0:
-        part['breath']=1 # in breath
+        part['breath'] = 1 # in breath
     else:
-        part['breath']=0 # out breath
+        part['breath'] = 0 # out breath
 
 
-
-
+    '''duration'''
+    part['duration'] = pick('duration')
 
 
     '''hold breath'''
