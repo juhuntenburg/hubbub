@@ -158,4 +158,13 @@ while count < 20: # will have to be replaced by duration time lenght, testing
                 while part['hold_breath']['at'] + part['hold_breath']['for'] > part['duration']:
                     part['hold_breath']['for'] = pick('duration')
 
+
+    '''airflow'''
+    # decide whether to pick, otherwise ordinary = 1
+    if pick('yesno'):
+        part['airflow'] = pick('airflow')
+    else:
+        part['airflow'] = 1
+
+
     print part
