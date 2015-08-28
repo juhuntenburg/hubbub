@@ -15,7 +15,7 @@ bags['yesno'] = 7*[True] + 13*[False]
 
 '''durations bag'''
 bags['duration'] = [x+1 for x in range(50)]
-bags['duration'] += 4*['alap'] # as long as you can
+bags['duration'] += 4*[float('inf')] # as long as you can
 # how to check for total length with instructions like "as long as you can"?
 
 '''hold breath bag'''
@@ -137,7 +137,6 @@ while count < 20: # will have to be replaced by duration time lenght, testing
     # decide whether to pick
     if pick('yesno'):
         part['hold_breath'] = {'type':pick('hold_breath')}
-        print type(part['hold_breath'])
 
         # check if hold breath fits to in/out
         if ((part['breath'] and 'out' in part['hold_breath']) \
@@ -146,8 +145,13 @@ while count < 20: # will have to be replaced by duration time lenght, testing
 
         # if hold breath still exists, pick timing and duration
         else:
+            print part
+            # pick starting point until it falls into total duration
             part['hold_breath']['at'] = pick('duration')
-            # check if start falls into total duration of part
+            while part['hold_breath']['at'] > part['duration']:
+                part['hold_breath']['at'] = pick('duration')
+                print part['hold_breath']['at']
+
             part['hold_breath']['for'] = pick('duration')
 
     print part
