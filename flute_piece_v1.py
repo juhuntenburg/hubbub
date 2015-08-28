@@ -1,6 +1,7 @@
 
 import numpy as np
 from random import randint
+import operator
 
 '''
 Initializing a data structure implementing the bags,
@@ -56,7 +57,6 @@ for i in range(len(covered)):
             sumlist=False
         print str(i+1)+choices[j]+": "+str(covered[i][choices[j]])+" "+str(lenlist)+" "+str(sumlist)
 
-
 '''airflow bag'''
 bags['airflow'] = [0, 0.5, 1]
 
@@ -64,12 +64,11 @@ bags['airflow'] = [0, 0.5, 1]
 bags['mouthpiece'] = [0, 0.25, 0.5, 1]
 
 '''dynamics bag'''
-bags['dynamics'] = ['<', '>']
+bags['dynamics'] = 2*[operator.lt]
+# for crescendo and diminuendo, decision in which direction comes later
 #bags['dynamics'] += [(x+1)*y if x < 3 else 'm'+y
 #                     for x in range(4) for y in ['f','p']]
 bags['dynamics'] += range(-4,0)+range(1,5)
-
-print bags['dynamics']
 
 '''articulation bag'''
 bags['articulation'] = ['.', '-', '>', '>>', 'mini tongue ram @end of breath']
@@ -158,7 +157,7 @@ while count < 20: # will have to be replaced by duration time lenght, testing
                 part['hold_breath']['at'] = pick('duration')
                 while part['hold_breath']['at'] > part['duration']:
                     part['hold_breath']['at'] = pick('duration')
-                while part['hold_breath']['at'] + part['hold_breath']['for'] > part['duration']:
+                while part['hold_breath']['at'] + part['hold_breath']['for'] > part['duration']+1:
                     part['hold_breath']['for'] = pick('duration')
 
 
@@ -183,11 +182,15 @@ while count < 20: # will have to be replaced by duration time lenght, testing
     part['dynamics'] = {'base':pick('dynamics')}
 
     # if first is crescendo or diminuendo, pick start and end dynamic
-    if part['dynamics']['base'] in ['<', '>'] :
-        part['dynamics']['from'] = pick('dynamics')
-        part['dynamics']['to'] = pick('dynamics')
+    if part['dynamics']['base'] == operator.lt :
+        part['dynamics']['from'] = part['dynamics']['to'] = operator.lt
+        while part['dynamics']['from'] == operator.lt:
+            part['dynamics']['from'] = pick('dynamics')
+        while part['dynamics']['to'] == operator.lt:
+            part['dynamics']['to'] = pick('dynamics')
 
-        #if []
+        #if part['dynamics']['base'] == '<'
+        #part['dynamics']['from']
 
 
 
