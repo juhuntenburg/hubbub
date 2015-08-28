@@ -122,11 +122,16 @@ while count < 20: # will have to be replaced by duration time lenght, testing
     part = dict()
     part['count'] = count
 
-    # alternate in and out
+    '''in and out'''
     if count%2==0:
         part['breath']=1 # in breath
     else:
         part['breath']=0 # out breath
+
+
+
+
+
 
     '''hold breath'''
     # decide whether to pick
