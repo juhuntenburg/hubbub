@@ -131,7 +131,8 @@ while count < 20: # will have to be replaced by duration time lenght, testing
     '''hold breath'''
     # decide whether to pick
     if pick('yesno'):
-        part['hold_breath'] = pick('hold_breath')
+        part['hold_breath'] = {'type':pick('hold_breath')}
+        print type(part['hold_breath'])
 
         # check if hold breath fits to in/out
         if ((part['breath'] and 'out' in part['hold_breath']) \
@@ -139,7 +140,7 @@ while count < 20: # will have to be replaced by duration time lenght, testing
             del part['hold_breath']
 
         # if hold breath still exists, pick timing and duration
-        else:
-
+        #else:
+    #        pick['duration']
 
     print part
