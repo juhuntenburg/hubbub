@@ -65,8 +65,11 @@ bags['mouthpiece'] = [0, 0.25, 0.5, 1]
 
 '''dynamics bag'''
 bags['dynamics'] = ['<', '>']
-bags['dynamics'] += [(x+1)*y if x < 3 else 'm'+y
-                     for x in range(4) for y in ['f','p']]
+#bags['dynamics'] += [(x+1)*y if x < 3 else 'm'+y
+#                     for x in range(4) for y in ['f','p']]
+bags['dynamics'] += range(-4,0)+range(1,5)
+
+print bags['dynamics']
 
 '''articulation bag'''
 bags['articulation'] = ['.', '-', '>', '>>', 'mini tongue ram @end of breath']
@@ -165,6 +168,28 @@ while count < 20: # will have to be replaced by duration time lenght, testing
         part['airflow'] = pick('airflow')
     else:
         part['airflow'] = 1
+
+
+    '''mouthpiece'''
+    # decide whether to pick, otherwise ordinary = .25
+    if pick('yesno'):
+        part['mouthpiece'] = pick('mouthpiece')
+    else:
+        part['mouthpiece'] = .25
+
+
+    '''dynamics'''
+    # pick one dynamic first
+    part['dynamics'] = {'base':pick('dynamics')}
+
+    # if first is crescendo or diminuendo, pick start and end dynamic
+    if part['dynamics']['base'] in ['<', '>'] :
+        part['dynamics']['from'] = pick('dynamics')
+        part['dynamics']['to'] = pick('dynamics')
+
+        #if []
+
+
 
 
     print part
