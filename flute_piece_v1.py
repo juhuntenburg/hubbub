@@ -133,4 +133,10 @@ while count < 20: # will have to be replaced by duration time lenght, testing
     if pick('yesno')==True:
         part['hold_breath'] = pick('hold_breath')
 
+        print part
+        # check if hold breath fits to in/out
+        if ((part['breath'] and 'out' in part['hold_breath']) \
+            or (not part['breath'] and 'in' in part['hold_breath'])):
+            del part['hold_breath']
+
     print part
