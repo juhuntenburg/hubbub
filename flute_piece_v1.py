@@ -140,7 +140,9 @@ while count < 20: # will have to be replaced by duration time lenght, testing
             del part['hold_breath']
 
         # if hold breath still exists, pick timing and duration
-        #else:
-    #        pick['duration']
+        else:
+            part['hold_breath']['at'] = pick('duration')
+            # check if start falls into total duration of part
+            part['hold_breath']['for'] = pick('duration')
 
     print part
