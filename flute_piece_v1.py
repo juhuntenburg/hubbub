@@ -19,7 +19,7 @@ bags['duration'] += 4*['as long as you can']
 # how to check for total length with instructions like "as long as you can"?
 
 '''hold breath bag'''
-bags['hold_breath'] = ['in middle', 'after in', 'after out']
+bags['hold_breath'] = ['middle', 'after in', 'after out']
 # pick duration for hold
 # symbol is ,
 
@@ -133,7 +133,6 @@ while count < 20: # will have to be replaced by duration time lenght, testing
     if pick('yesno')==True:
         part['hold_breath'] = pick('hold_breath')
 
-        print part
         # check if hold breath fits to in/out
         if ((part['breath'] and 'out' in part['hold_breath']) \
             or (not part['breath'] and 'in' in part['hold_breath'])):
