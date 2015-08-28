@@ -182,21 +182,28 @@ while count < 20: # will have to be replaced by duration time lenght, testing
 
     # if first is crescendo or diminuendo, pick start and end dynamic
     if part['dynamics']['base'] in ['<','>'] :
-        # pick start that is not '<>'
         part['dynamics']['from'] = pick('dynamics')
-        while part['dynamics']['from'] in ['<','>'] :
-            part['dynamics']['from'] = pick('dynamics')
-
-        print part
-
-        # pick end that is not <> and makes sense with the start
         part['dynamics']['to'] = pick('dynamics')
+
+        # make sure start and end are not in <> and make sense
         if part['dynamics']['base'] == '<':
+            # for crescendo, start should not be loudest
+            # end should be louder than start
+            while (part['dynamics']['from'] in \
+                ['<', '>', max([x for x in bags['dynamics'] if type(x)==int])]):
+                part['dynamics']['from'] = pick('dynamics')
+
             while (part['dynamics']['to'] in ['<','>'] or \
                   part['dynamics']['to'] <= part['dynamics']['from']):
                 part['dynamics']['to'] = pick('dynamics')
 
         elif part['dynamics']['base'] == '>':
+            # for diminuendo, start should not be quietest
+            # end should be quieter than start
+            while (part['dynamics']['from'] in \
+                ['<', '>', min([x for x in bags['dynamics'] if type(x)==int])]):
+                part['dynamics']['from'] = pick('dynamics')
+
             while (part['dynamics']['to'] in ['<','>'] or \
                   part['dynamics']['to'] >= part['dynamics']['from']):
                 part['dynamics']['to'] = pick('dynamics')
