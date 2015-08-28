@@ -64,8 +64,7 @@ bags['airflow'] = [0, 0.5, 1]
 bags['mouthpiece'] = [0, 0.25, 0.5, 1]
 
 '''dynamics bag'''
-bags['dynamics'] = 2*[operator.lt]
-# for crescendo and diminuendo, decision in which direction comes later
+bags['dynamics'] = ['<', '>']
 #bags['dynamics'] += [(x+1)*y if x < 3 else 'm'+y
 #                     for x in range(4) for y in ['f','p']]
 bags['dynamics'] += range(-4,0)+range(1,5)
@@ -182,20 +181,24 @@ while count < 20: # will have to be replaced by duration time lenght, testing
     part['dynamics'] = {'base':pick('dynamics')}
 
     # if first is crescendo or diminuendo, pick start and end dynamic
-    if part['dynamics']['base'] == operator.lt :
-        # pick start and end that are not lt
-        part['dynamics']['from'] = part['dynamics']['to'] = operator.lt
-        while part['dynamics']['from'] == operator.lt:
+    if part['dynamics']['base'] in ['<','>'] :
+        # pick start that is not '<>'
+        part['dynamics']['from'] = pick('dynamics')
+        while part['dynamics']['from'] in ['<','>'] :
             part['dynamics']['from'] = pick('dynamics')
-        while part['dynamics']['to'] == operator.lt:
-            part['dynamics']['to'] = pick('dynamics')
 
-        # decide about direction and make sure start and end make sense
-        swap = randint(0,1)
-        while part['dynamics']['to'] part['dynamics']['base'] part['dynamics']['from']
+        print part
 
+        # pick end that is not <> and makes sense with the start
+        part['dynamics']['to'] = pick('dynamics')
+        if part['dynamics']['base'] == '<':
+            while (part['dynamics']['to'] in ['<','>'] or \
+                  part['dynamics']['to'] <= part['dynamics']['from']):
+                part['dynamics']['to'] = pick('dynamics')
 
-
-
+        elif part['dynamics']['base'] == '>':
+            while (part['dynamics']['to'] in ['<','>'] or \
+                  part['dynamics']['to'] >= part['dynamics']['from']):
+                part['dynamics']['to'] = pick('dynamics')
 
     print part
