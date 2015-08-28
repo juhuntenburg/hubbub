@@ -143,15 +143,19 @@ while count < 20: # will have to be replaced by duration time lenght, testing
             or (not part['breath'] and 'in' in part['hold_breath'])):
             del part['hold_breath']
 
-        # if hold breath still exists, pick timing and duration
+        # if hold breath still exists, pick timing
         else:
-            print part
-            # pick starting point until it falls into total duration
-            part['hold_breath']['at'] = pick('duration')
-            while part['hold_breath']['at'] > part['duration']:
-                part['hold_breath']['at'] = pick('duration')
-                print part['hold_breath']['at']
-
+            # pick a duration of hold breath
             part['hold_breath']['for'] = pick('duration')
+
+            # if hold breath is in the middle, pick a starting point that falls
+            # into total duration, check whole hold breath fits into total
+            # duration, otherwise pick again
+            if 'middle'in part['hold_breath']['type']:
+                part['hold_breath']['at'] = pick('duration')
+                while part['hold_breath']['at'] > part['duration']:
+                    part['hold_breath']['at'] = pick('duration')
+                while part['hold_breath']['at'] + part['hold_breath']['for'] > part['duration']:
+                    part['hold_breath']['for'] = pick('duration')
 
     print part
