@@ -177,35 +177,44 @@ while count < 20: # will have to be replaced by duration time lenght, testing
 
 
     '''dynamics'''
-    # pick one dynamic first
-    part['dynamics'] = {'base':pick('dynamics')}
+    # function to pick start and end for gradual dynamics
+    def gradual(dyndict):
+        # find min and max dynamics
+        mindyn = min([x for x in bags['dynamics'] if type(x)==int])
+        maxdyn = max([x for x in bags['dynamics'] if type(x)==int])
 
-    # if first is crescendo or diminuendo, pick start and end dynamic
-    if part['dynamics']['base'] in ['<','>'] :
-        part['dynamics']['from'] = pick('dynamics')
-        part['dynamics']['to'] = pick('dynamics')
+        # pick inital start and end
+        dyndict['from'] = pick('dynamics')
+        dyndict['to'] = pick('dynamics')
 
         # make sure start and end are not in <> and make sense
-        if part['dynamics']['base'] == '<':
+        if dyndict['base'] == '<':
             # for crescendo, start should not be loudest
+            while (dyndict['from'] in ['<', '>', maxdyn]):
+                dyndict['from'] = pick('dynamics')
             # end should be louder than start
-            while (part['dynamics']['from'] in \
-                ['<', '>', max([x for x in bags['dynamics'] if type(x)==int])]):
-                part['dynamics']['from'] = pick('dynamics')
+            while (dyndict['to'] in ['<','>'] or \
+                  dyndict['to'] <= dyndict['from']):
+                dyndict['to'] = pick('dynamics')
 
-            while (part['dynamics']['to'] in ['<','>'] or \
-                  part['dynamics']['to'] <= part['dynamics']['from']):
-                part['dynamics']['to'] = pick('dynamics')
-
-        elif part['dynamics']['base'] == '>':
+        elif dyndict['base'] == '>':
             # for diminuendo, start should not be quietest
+            while (dyndict['from'] in ['<', '>', mindyn]):
+                dyndict['from'] = pick('dynamics')
             # end should be quieter than start
-            while (part['dynamics']['from'] in \
-                ['<', '>', min([x for x in bags['dynamics'] if type(x)==int])]):
-                part['dynamics']['from'] = pick('dynamics')
+            while (dyndict['to'] in ['<','>'] or \
+                  dyndict['to'] >= dyndict['from']):
+                dyndict['to'] = pick('dynamics')
 
-            while (part['dynamics']['to'] in ['<','>'] or \
-                  part['dynamics']['to'] >= part['dynamics']['from']):
-                part['dynamics']['to'] = pick('dynamics')
+    # pick one dynamic first
+    part['dynamics'] = {1:{'base':pick('dynamics')}}
+
+    if part['dynamics'][1]['base'] in ['<','>'] :
+        gradual(part['dynamics'][1])
+
+    # decide whether to pick a second dynamic
+    #if pick('yesno'):
+
+
 
     print part
