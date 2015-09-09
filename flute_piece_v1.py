@@ -212,9 +212,17 @@ while count < 20: # will have to be replaced by duration time lenght, testing
     if part['dynamics'][1]['base'] in ['<','>'] :
         gradual(part['dynamics'][1])
 
-    # decide whether to pick a second dynamic
-    #if pick('yesno'):
+    # potentially pick another dynamic
+    if pick('yesno'):
+        part['dynamics'][2] = {'base':pick('dynamics')}
+        # if the dynamic is gradual use the (end point of)
+        # the last one as the beginning of the first
+        if part['dynamics'][2]['base'] in ['<','>'] :
 
+            #gradual(part['dynamics'][2])
 
+        # if the second dynamic is not gradual and the first isn't either
+
+    # how long to keep picking?
 
     print part
